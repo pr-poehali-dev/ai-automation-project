@@ -6,8 +6,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import { Switch } from "@/components/ui/switch";
 import Icon from '@/components/ui/icon';
+import { useNavigate } from 'react-router-dom';
 
 const Index = () => {
+  const navigate = useNavigate();
   const [scenarios, setScenarios] = useState([
     { id: 1, name: 'Обработка заявок клиентов', status: 'active', success: 98, executions: 1247, lastRun: '2 минуты назад' },
     { id: 2, name: 'Синхронизация данных CRM', status: 'active', success: 95, executions: 856, lastRun: '15 минут назад' },
@@ -49,7 +51,7 @@ const Index = () => {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <Button variant="outline" size="sm">
+              <Button variant="outline" size="sm" onClick={() => navigate('/settings')}>
                 <Icon name="Settings" size={16} className="mr-2" />
                 Настройки
               </Button>
